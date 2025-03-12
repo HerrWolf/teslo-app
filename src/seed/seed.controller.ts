@@ -13,7 +13,10 @@ export class SeedController {
 
   @Get()
   // @Auth( ValidRoles.admin )
-  executeSeed() {
-    return this.seedService.runSeed()
+  async executeSeed() {
+    const message = await this.seedService.runSeed();
+    return {
+      message
+    }
   }
 }
